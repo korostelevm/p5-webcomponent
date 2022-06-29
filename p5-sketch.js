@@ -42,7 +42,7 @@ class P5Sketch extends HTMLElement {
         let script
         // let script = `<script>${p5lib}</script>`
         // this.#shadowRoot.innerHTML+= script
-        this.#shadowRoot.innerHTML+= `<div id="sketch${name}"></div>`
+        this.#shadowRoot.innerHTML+= `<div id="sketch${name}" class="p5"></div>`
         // esprima = eval(esprima)
         // this.#shadowRoot.innerHTML+= `<script>${esprima}</script>`
         
