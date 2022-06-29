@@ -3,7 +3,7 @@ import {} from "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js";
 // import {} from "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js";
 
 
-class TestElement extends HTMLElement {
+class P5Sketch extends HTMLElement {
     #shadowRoot = null;
     
     constructor() {
@@ -47,7 +47,7 @@ class TestElement extends HTMLElement {
         // esprima = eval(esprima)
         // this.#shadowRoot.innerHTML+= `<script>${esprima}</script>`
         
-        let sketch = await (await fetch('sketch.js')).text()
+        let sketch = await (await fetch(src)).text()
         
         let n = new p5((d)=>{
             d.setup = function(){
@@ -114,4 +114,4 @@ class TestElement extends HTMLElement {
     }
   }
   
-  customElements.define('test-element', TestElement);
+  customElements.define('p5-sketch', P5Sketch);
