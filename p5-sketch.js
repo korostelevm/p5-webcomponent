@@ -13,9 +13,7 @@ class P5Sketch extends HTMLElement {
     }
     
     get template() {
-      return `
-        <slot></slot>
-      `;
+      return ``;
     }
     
     get #scripts() {
