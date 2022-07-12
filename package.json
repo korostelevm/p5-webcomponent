@@ -13,12 +13,11 @@
   "license": "MIT",
   "devDependencies": {
     "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "nodemon": "^2.0.19"
   },
   "dependencies": {
     "esprima": "^4.0.1",
-    "lodash": "^4.17.21",
-    "nodemon": "^2.0.19",
     "p5": "^1.4.1"
   }
 }
