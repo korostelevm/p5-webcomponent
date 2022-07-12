@@ -39,7 +39,13 @@ class P5Sketch extends HTMLElement {
         let script
         this.#shadowRoot.innerHTML+= `<div id="sketch${name}" class="p5"></div>`
         
-        let sketch = await (await fetch(src)).text()
+        let sketch
+        
+        if(src.slice(-2 == '.js')){
+          sketch =  await (await fetch(src)).text()
+        }else{
+          sketch = src
+        }
         
         let n = new p5((d)=>{
             d.setup = function(){
@@ -70,20 +76,9 @@ class P5Sketch extends HTMLElement {
         for (const p5func of p5funcs) {
             sketch = sketch.replace(new RegExp(`([^.\\w])(${p5func}[(])`, 'gm'), (match, p1, p2) => `${p1}${instance}.${p2}`)
         }
-        console.log(sketch)
 
         let names  = []
         let p = esprima.parse(sketch)
-        console.log(p.body.forEach(e=>{
-            if(e.declarations){
-                e.declarations.forEach(dd=>{
-                    names.push(dd.id.name)
-                })
-            }else{
-                names.push(e.id.name)
-            }
-        }))
-        console.log(names)
         script = `<script>
         let ${instance} = (${instance}) =>{
             ${sketch}
@@ -99,9 +94,7 @@ class P5Sketch extends HTMLElement {
         
         this.#processScripts();
         let a = this.#shadowRoot.getElementById(`sketch${name}`)
-        console.log(a)
         a.removeChild(a.firstChild)
-        console.log(a.firstChild)
         
     }
   }
