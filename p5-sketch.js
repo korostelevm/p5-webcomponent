@@ -1,4 +1,4 @@
-// import {} from "https://cdn.jsdelivr.net/npm/esprima@4.0.1/dist/esprima.js";
+import {} from  "https://cdn.jsdelivr.net/npm/esprima@4.0.1/dist/esprima.js";
 import {} from "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js";
 // import {} from "https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js";
 
@@ -47,9 +47,9 @@ class P5Sketch extends HTMLElement {
         let sketch = await (await fetch(src)).text()
         
         let n = new p5((d)=>{
-            d.setup = function(){
-                d.createCanvas(0,0)
-            }
+            // d.setup = function(){
+            //     d.createCanvas(0,0)
+            // }
             return d
 
         })
@@ -75,20 +75,20 @@ class P5Sketch extends HTMLElement {
         for (const p5func of p5funcs) {
             sketch = sketch.replace(new RegExp(`([^.\\w])(${p5func}[(])`, 'gm'), (match, p1, p2) => `${p1}${instance}.${p2}`)
         }
-        console.log(sketch)
+        // console.log(sketch)
 
         let names  = []
         let p = esprima.parse(sketch)
-        console.log(p.body.forEach(e=>{
-            if(e.declarations){
-                e.declarations.forEach(dd=>{
-                    names.push(dd.id.name)
-                })
-            }else{
-                names.push(e.id.name)
-            }
-        }))
-        console.log(names)
+        // console.log(p.body.forEach(e=>{
+        //     if(e.declarations){
+        //         e.declarations.forEach(dd=>{
+        //             names.push(dd.id.name)
+        //         })
+        //     }else{
+        //         names.push(e.id.name)
+        //     }
+        // }))
+        // console.log(names)
         script = `<script>
         let ${instance} = (${instance}) =>{
             ${sketch}
@@ -104,9 +104,9 @@ class P5Sketch extends HTMLElement {
         
         this.#processScripts();
         let a = this.#shadowRoot.getElementById(`sketch${name}`)
-        console.log(a)
+        // console.log(a)
         a.removeChild(a.firstChild)
-        console.log(a.firstChild)
+        // console.log(a.firstChild)
         
     }
   }
