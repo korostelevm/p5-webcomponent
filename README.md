@@ -4,7 +4,7 @@ convert global mode sketch into instance mode and render as custom element / web
 
 
 ### how to use
-require component library
+include component library
 ```html
 <script src="https://p5.cyclic.app/p5-webcomponent.js"></script>
 ```
