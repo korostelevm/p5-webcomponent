@@ -13,5 +13,6 @@ use global mode sketch file as source parameter
 ```html
 <p5-sketch name="1" src="./sketch.js"></p5-sketch>
 ```
+* sketch can also  be remotely hosted
 
 ![](screenshot.png) 
