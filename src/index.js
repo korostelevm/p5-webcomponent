@@ -39,10 +39,9 @@ class P5Sketch extends HTMLElement {
         let script
         this.#shadowRoot.innerHTML+= `<div id="sketch${name}" class="p5"></div>`
         
-        let sketch
-
-        if(src.slice(-2) == '.js'){
-          sketch =  await (await fetch(src)).text()
+        let sketch 
+        if(src.slice(-3) =='.js'){
+          sketch = await (await fetch(src)).text()
         }else{
           sketch = src
         }
@@ -79,6 +78,15 @@ class P5Sketch extends HTMLElement {
 
         let names  = []
         let p = esprima.parse(sketch)
+        p.body.forEach(e=>{
+            if(e.declarations){
+                e.declarations.forEach(dd=>{
+                    names.push(dd.id.name)
+                })
+            }else{
+                names.push(e.id.name)
+            }
+        })
         script = `<script>
         let ${instance} = (${instance}) =>{
             ${sketch}

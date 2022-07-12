@@ -4,8 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "nodemon demo/app.js",
-    "build": "webpack && mkdir -p demo/public && cp ./dist/main.js demo/public/ && cd demo && npm install",
+    "dev": "cd demo && nodemon app.js",
+    "build": "webpack && mkdir -p demo/public && cp ./dist/main.js demo/public/p5-webcomponent.js && cd demo && npm install",
     "start": "node demo/app.js"
   },
   "keywords": [],
