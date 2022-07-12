@@ -40,8 +40,8 @@ class P5Sketch extends HTMLElement {
         this.#shadowRoot.innerHTML+= `<div id="sketch${name}" class="p5"></div>`
         
         let sketch
-        
-        if(src.slice(-2 == '.js')){
+
+        if(src.slice(-2) == '.js'){
           sketch =  await (await fetch(src)).text()
         }else{
           sketch = src

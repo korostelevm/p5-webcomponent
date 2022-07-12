@@ -4,7 +4,9 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon demo/app.js",
+    "build": "webpack && mkdir -p demo/public && cp ./dist/main.js demo/public/",
+    "start": "node demo/app.js"
   },
   "keywords": [],
   "author": "",
