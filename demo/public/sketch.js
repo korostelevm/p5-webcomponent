@@ -31,6 +31,7 @@ function draw() {
   rotateY(0.4) ;
   for (let i = 0; i< 5; i++){    
     rotateX(0.27 * sin(l)) ;
+    rotateY(0.27 * sin(l2)) ;
     
     fill(255,255,255,150)
     plane(rw,rh)
@@ -46,7 +47,8 @@ function draw() {
   
     
 
-
-  l = millis() / 600
+  l2 = mouseY/200
+  l = mouseX / 600
+  // l = millis() / 600
 
 }
