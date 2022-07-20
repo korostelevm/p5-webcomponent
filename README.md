@@ -1,7 +1,10 @@
 # p5-webcomponent
 
-convert global mode sketch into instance mode and render as custom element / webcomponent
-
+- renderes as custom element
+- framework agnostic, use with react, vue, etc
+- use global mode sketches (don't have to prefix every p5 method with an instance name) 
+- loads remote or local hosted sketches 
+- multiple sketches in page
 
 ### how to use
 include component library
